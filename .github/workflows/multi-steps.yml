@@ -1,0 +1,18 @@
+name: Multi Step Workflow
+
+on:
+  push:
+jobs:
+  demo_steps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Étape 1 - Message de bienvenue
+        run: echo "Bienvenue dans un workflow à plusieurs étapes !"
+      - name: Étape 2 - Afficher la date
+        run: date
+      - name: Étape 3 - Afficher le nom de la branche
+        run: echo "Branche actuelle : ${{ github.ref }}"
+      - name: Étape 4 - Lister les fichiers du dépôt
+        uses: actions/checkout@v3
+      - name: Lister les fichiers
+        run: ls -la
